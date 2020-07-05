@@ -28,3 +28,17 @@ $ docker-compose up -d
 ```
 
 More info [here](https://hasura.io/docs/1.0/graphql/manual/getting-started/docker-simple.html).
+
+### Create Table
+
+Access URL below.
+
+http://localhost:8080/console
+
+Access then, Create Table below.
+
+```
+users
+id - integer, auto increment, primary key
+name - text
+```
