@@ -1,3 +1,5 @@
+import colors from 'vuetify/es5/util/colors'
+require('dotenv').config()
 export default {
   mode: 'universal',
   /*
@@ -34,7 +36,8 @@ export default {
   buildModules: [
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/vuetify'
   ],
   /*
    ** Nuxt.js modules
@@ -60,6 +63,34 @@ export default {
     // required
     clientConfigs: {
       default: '~/apollo/clientConfig.js'
+    }
+  },
+
+  /*
+   ** vuetify module configuration
+   ** https://github.com/nuxt-community/vuetify-module
+   */
+  vuetify: {
+    theme: {
+      dark: true,
+      themes: {
+        dark: {
+          primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        }
+      }
+    },
+    defaultAssets: {
+      font: true,
+      icons: 'md'
+    },
+    icons: {
+      iconfont: 'md'
     }
   },
 

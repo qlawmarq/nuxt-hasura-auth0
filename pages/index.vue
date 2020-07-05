@@ -1,46 +1,46 @@
 <template>
-  <div>
-    <h3>Authors</h3>
-    <ul>
-      <li v-for="item in author" :key="item.id">
-        <nuxt-link :to="`/article/${item.id}`">
-          {{ item.name }}
-        </nuxt-link>
-      </li>
-    </ul>
-  </div>
+  <v-data-table
+    :headers="header"
+    :items="users"
+    class="elevation-1"
+    @click:row="clickRow"
+  />
 </template>
 
 <script>
-import author from '~/apollo/queries/fetchUsers'
+import users from '~/apollo/queries/fetchUsers'
+const usersHeader = [
+  {
+    text: 'ID',
+    value: 'id'
+  },
+  {
+    text: 'Name',
+    value: 'name'
+  }
+]
 
 export default {
   apollo: {
-    author: {
+    users: {
       prefetch: true,
-      query: author
+      query: users
+    }
+  },
+  data() {
+    return {
+      header: usersHeader
+    }
+  },
+  methods: {
+    clickRow(row) {
+      this.$router.push(`/users/${row.id}`)
     }
   },
   head() {
     return {
-      title: 'Authors of Blog'
+      title: 'Users'
     }
   }
 }
 </script>
-
-<style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-}
-a {
-  text-decoration: none;
-  color: #3498db;
-}
-a:hover {
-  border-bottom: 1px solid;
-}
-</style>
