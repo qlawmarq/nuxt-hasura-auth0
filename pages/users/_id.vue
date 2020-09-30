@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import user from '~/apollo/queries/fetchUserWhereId'
+import user from '~/apollo/queries/fetchUsers'
 
 export default {
   apollo: {
@@ -28,7 +28,7 @@ export default {
       query: user,
       prefetch: ({ route }) => ({ id: route.params.id }),
       variables() {
-        return { user_id: this.$route.params.id }
+        return { auth0_id: this.$route.params.id }
       }
     }
   },

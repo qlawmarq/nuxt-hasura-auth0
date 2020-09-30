@@ -27,6 +27,7 @@
     }
   },
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.12.1",
     "@nuxtjs/apollo": "^4.0.0-rc19",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-0",

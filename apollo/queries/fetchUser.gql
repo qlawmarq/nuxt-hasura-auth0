@@ -1,0 +1,12 @@
+query fetchUser($auth0_id: String) {
+  users(where: {auth0_id: {_eq: $auth0_id }}) {
+    id
+    user_roles {
+      id
+      name
+    }
+    email
+    created_at
+    auth0_id
+  }
+}

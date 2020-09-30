@@ -1,6 +1,11 @@
-query {
-    users {
-    	id
-    	name
+query fetchUsers {
+  users {
+    id
+    email
+    auth0_id
+    user_roles {
+      id
+      name
     }
+  }
 }
