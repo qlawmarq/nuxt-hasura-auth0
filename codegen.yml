@@ -1,0 +1,19 @@
+overwrite: true
+watch: true
+schema:
+  - ${HASURA_ENDPOINT}:
+      headers:
+        x-hasura-admin-secret: ${HASURA_ADMIN_SECRET}
+documents: ./apollo/**/*.gql
+generates:
+  ./types/gql-client-api.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-vue-apollo
+    config:
+      addDocBlocks: true
+      withCompositionFunctions: false
+  ./apollo/schema.graphql:
+    plugins:
+      - schema-ast

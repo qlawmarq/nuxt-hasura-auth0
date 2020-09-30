@@ -11,7 +11,8 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:fix": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
-    "prettier:format": "prettier '**/*.{js,jsx,ts,tsx,vue}' --write"
+    "prettier:format": "prettier '**/*.{js,jsx,ts,tsx,vue}' --write",
+    "codegen": "graphql-codegen --config codegen.yml -r dotenv/config"
   },
   "lint-staged": {
     "*.{js,vue}": [
@@ -36,6 +37,10 @@
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.17.10",
+    "@graphql-codegen/schema-ast": "^1.17.8",
+    "@graphql-codegen/typescript-operations": "^1.17.8",
+    "@graphql-codegen/typescript-vue-apollo": "^2.1.0",
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
